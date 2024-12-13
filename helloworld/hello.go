@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"internal/goarch"
 )
 
 const (
@@ -15,7 +14,6 @@ const (
 	frenchHelloPrefix = "Bonjour, "
 	portugueseHelloPrefix = "Oi, "
 )
-
 
 
 func Hello(name string, language string) string {
