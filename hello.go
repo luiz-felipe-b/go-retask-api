@@ -1,16 +1,45 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"internal/goarch"
+)
 
-const englishHelloPrefix = "Hello, "
+const (
+	spanish = "Spanish"
+	french = "French"
+	portuguese = "Portuguese"
 
-func Hello(name string) string {
+	englishHelloPrefix = "Hello, "
+	spanishHelloPrefix = "Hola, "
+	frenchHelloPrefix = "Bonjour, "
+	portugueseHelloPrefix = "Oi, "
+)
+
+
+
+func Hello(name string, language string) string {
 	if name == "" {
 		name = "world"
 	}
-	return englishHelloPrefix + name + "!"
+
+	return greetingPrefix(language) + name + "!"
+}
+
+func greetingPrefix(language string) (prefix string) {
+	switch language {
+	case spanish:
+		prefix = spanishHelloPrefix
+	case french:
+		prefix = frenchHelloPrefix
+	case portuguese:
+		prefix = portugueseHelloPrefix
+	default:
+		prefix = englishHelloPrefix
+	}
+	return
 }
 
 func main() {
-	fmt.Println(Hello("world"))
+	fmt.Println(Hello("world", ""))
 }
